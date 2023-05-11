@@ -1,6 +1,7 @@
 part of 'location_bloc.dart';
 
 abstract class LocationEvent extends Equatable {
+  // Constructor
   const LocationEvent();
 
   @override

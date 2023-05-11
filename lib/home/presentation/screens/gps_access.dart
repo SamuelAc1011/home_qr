@@ -1,8 +1,12 @@
-//Flutter
+// Flutter
 import 'package:flutter/material.dart';
+
+// Packages
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:home_qr/home/presentation/manager/manager.dart';
 import 'package:lottie/lottie.dart';
+
+// Imports
+import 'package:home_qr/home/presentation/manager/manager.dart';
 
 class GPSAccessScreen extends StatelessWidget {
   /// This widget shows the screen that asks the user for permission to access
@@ -20,8 +24,11 @@ class GPSAccessScreen extends StatelessWidget {
       body: Center(
         child: BlocBuilder<LocationBloc, LocationState>(
           builder: (context, state) {
+            // Condition: Is the GPS enabled?
             return !state.isGpsEnabled
+                // * Yes: Show the message to activate the GPS
                 ? const AccessPermission()
+                // * No: Show the message to ask for permission
                 : const ActivateAccess();
           },
         ),
@@ -56,7 +63,6 @@ class AccessPermission extends StatelessWidget {
           reverse: true,
           width: MediaQuery.of(context).size.width * 0.7,
         ),
-
       ],
     );
   }
@@ -89,7 +95,8 @@ class ActivateAccess extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.7,
         ),
         ElevatedButton(
-          onPressed: () => BlocProvider.of<LocationBloc>(context).askGpsAccess(),
+          onPressed: () =>
+              BlocProvider.of<LocationBloc>(context).askGpsAccess(),
           child: const Text('Solicitar Acceso'),
         )
       ],

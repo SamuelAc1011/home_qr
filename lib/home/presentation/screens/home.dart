@@ -1,5 +1,7 @@
 //Flutter
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:home_qr/home/presentation/manager/manager.dart';
 
 class HomeScreen extends StatelessWidget {
   /// This widget contains the home screen of the app.
@@ -11,9 +13,13 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text('Home Screen'),
+        child: BlocBuilder<DataBloc, DataState>(
+          builder: (context, state) {
+            return Text('Time api: ${state.time}');
+          },
+        ),
       ),
     );
   }

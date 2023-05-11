@@ -6,17 +6,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Imports
 import 'home/data/services/time_service.dart';
-import 'home/domain/entities/time.dart';
 import 'home/presentation/manager/manager.dart';
 import 'home/presentation/screens/screens.dart';
 
-
-void main() async {
-  final time = TimeService();
- final Time timeData =  await time.getTimeZone(19.629209, -99.105143);
-  print('Tiempo:  ${timeData.time.toString()}');
-  runApp(const MyAppState());
-}
+void main() async => runApp(const MyAppState());
 
 class MyAppState extends StatelessWidget {
 // Constructor
@@ -27,6 +20,9 @@ class MyAppState extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => LocationBloc()),
+        BlocProvider(
+          create: (_) => DataBloc(TimeService())..add(DataFetched()),
+        ),
       ],
       child: const MyApp(),
     );

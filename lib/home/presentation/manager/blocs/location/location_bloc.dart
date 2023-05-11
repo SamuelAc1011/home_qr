@@ -5,7 +5,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:home_qr/home/data/services/time_service.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 part 'location_event.dart';

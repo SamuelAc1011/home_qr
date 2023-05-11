@@ -1,2 +1,2 @@
-//GENERATED BARREL FILE 
-export './blocs/location_bloc.dart'; 
+export './blocs/data/data_bloc.dart';
+export './blocs/location/location_bloc.dart';
